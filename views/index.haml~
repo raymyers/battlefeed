@@ -1,0 +1,36 @@
+!!! 5
+%html
+  %head
+    %title Battle Feed
+    %link(rel='stylesheet' href='http://www.spry-soft.com/grids/grid.css?column_width=60&column_amount=12&gutter_width=20')
+    %link(rel='stylesheet' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/themes/smoothness/jquery-ui.css')
+    %script(type='text/javascript' src='http://www.google.com/jsapi?key=ABQIAAAAKkF6GsQUptL0jCixC3mq2xSpPuWdh7QwU-b5ywbpDu0AhEOVqxS31qPmHENzwebLkjOvGYD0Msv6OQ')
+    :javascript
+      google.load("jquery", "1.4.2");
+      google.load("jqueryui", "1.8.3");
+      google.setOnLoadCallback(function() {
+        $(function() {
+          $.getJSON("http://gdata.youtube.com/feeds/api/users/drect/uploads?v=2&alt=jsonc&max-results=25&start-index=1", gotted);
+          $("ul.vids li").live('click', function() {
+            $(".details").text($(this).data('item').description);
+          });
+          $("ul.vids").selectable();
+        });
+      });
+      function gotted(data,textStatus) {
+        var total = data.data.totalItems;
+        $.each(data.data.items, function(i, item) {
+          $("ul.vids").append("<li>" + item.title + "</li>");
+          $("ul.vids li:last").data('item', item);
+        });
+      }
+    :css
+      ul.vids .ui-selecting { background: #FECA40; } 
+      ul.vids .ui-selected { background: #F39814; color: white; } 
+      ul.vids { list-style-type: none; margin: 0; padding: 0; }
+      ul.vids li { margin: 0px; padding: 0px; } */
+  %body
+    .container_12
+      .grid_6
+        %ul.vids
+      .details.grid_6
