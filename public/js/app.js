@@ -45,7 +45,7 @@ function showTitle(title) {
 }
 
 function mcs() {
-    return "Fresco|Nocando|Surgeon General|Soul Khan|Dirtbag Dan|Sprungy|Justice|Madness|Th[a|e] ?Saurus|Cadallack Ron|Rheteric|XQZ|Unortodox Phrases|deadBeat|T-Rex|Murda Mook|Math Hoffa|poRICH|Sweet Youth|Mantra|Real Deal|Knowledge Medina|Hindu ?Rock|Conceited";
+    return "Fresco|Nocando|Surgeon General|Soul Khan|Dirtbag Dan|Sprungy|Justice|Madness|Th[a|e] ?Saurus|Cadallack Ron|Rheteric|XQZ|Unortodox Phrases|deadBeat|T-Rex|Murda Mook|Math Hoffa|poRICH|Sweet Youth|Mantra|Real Deal|Knowledge Medina|Hindu ?Rock|Conceited|Calicoe";
 }
 
 function displayFeed(data,textStatus) {
