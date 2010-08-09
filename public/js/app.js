@@ -31,19 +31,21 @@ function loadSelectedFeed() {
 }
 
 function showTitle(title) {
-    title = title.replace(/Grind Time Now .resents:/g,"").replace(/Grind Time Now/g,"GTN")
-    title = title.replace(/Got Beef\? Presents:/g,"")
-    title = title.replace(/KOTD -?/g,"")
-    title = title.replace(/DON'T FLOP -?/g,"")
-    title = title.replace(/URL PRESENTS/g,"").replace(/URL Presents/g,"")
-    title = title.replace(/No Coast Battles:/g,"")
-    title = title.replace(/[p|P]resents:/g,"")
+    title = title.replace(/Grind Time Now Presents:/ig,"").replace(/Grind Time Now/ig,"GTN");
+    title = title.replace(/Got Beef\?/g,"");
+    title = title.replace(/KOTD -?/g,"");
+    title = title.replace(/DON'T FLOP -?/g,"");
+    title = title.replace(/URL +PRESENTS/ig,"");
+    title = title.replace(/No Coast Battles:/g,"");
+    title = title.replace(/presents:/ig,"");
+    title = title.replace(/^ * - */,"");
+    title = title.replace(/^ *\/ */,"");
     title = title.replace(new RegExp("(" + mcs() + ")","ig"), "<span class='mc'>$1</span>");
     return title.trim();
 }
 
 function mcs() {
-    return "Fresco|Nocando|Surgeon General|Soul Khan|Dirtbag Dan|Sprungy|Justice|Madness|Tha ?Saurus|Cadallack Ron|Rheteric|XQZ|Unortodox Phrases|deadBeat|T-Rex|Murda Mook|Math Hoffa|poRICH|Sweet Youth|Mantra|Real Deal|Knowledge Medina|Hindu ?Rock|Conceited";
+    return "Fresco|Nocando|Surgeon General|Soul Khan|Dirtbag Dan|Sprungy|Justice|Madness|Th[a|e] ?Saurus|Cadallack Ron|Rheteric|XQZ|Unortodox Phrases|deadBeat|T-Rex|Murda Mook|Math Hoffa|poRICH|Sweet Youth|Mantra|Real Deal|Knowledge Medina|Hindu ?Rock|Conceited";
 }
 
 function displayFeed(data,textStatus) {
