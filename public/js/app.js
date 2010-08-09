@@ -17,7 +17,7 @@ google.setOnLoadCallback(function() {
             selected:function(event,ui) {
                 var item = $("ul.vids li.ui-selected").data('item');
                 $(".selectedVid .title").text(item.title);
-                $(".selectedVid .description").text(item.description);
+                $(".selectedVid .description").text(item.description == item.title ? "" : item.description);
                 $(".selectedVid .youtube-player").attr("src","http://www.youtube.com/embed/" + item.id + "?fmt=34");
             }
         });
