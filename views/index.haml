@@ -8,12 +8,15 @@
     %link(rel="stylesheet" href="http://www.spry-soft.com/grids/fluid_grid.css?column_amount=12")
     %script(type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAKkF6GsQUptL0jCixC3mq2xSpPuWdh7QwU-b5ywbpDu0AhEOVqxS31qPmHENzwebLkjOvGYD0Msv6OQ")
     %script(type="text/javascript" src="/js/app.js")
-    %script(type="text/javascript" src="/js/pretty.js")
+    %script(type="text/javascript" src="/js/humane.js")
     :css
       ul.vids .ui-selecting { background: #FECA40; } 
       ul.vids .ui-selected { background: #F39814; color: white; } 
       ul.vids { list-style-type: none; margin: 0; padding: 0; }
-      ul.vids li { margin: 0px; padding: 0px; } */
+      ul.vids li { margin: 0px; padding: 0px; }
+      ul.vids li .date {color:gray; padding-right: 5px;}
+      ul.vids li .date.today {color: green;}
+      ul.vids li .mc {color: blue;}
   %body
     .container_12
       .selectFeed.grid_12

@@ -1,6 +1,7 @@
 google.load("jquery", "1.4.2");
 google.load("jqueryui", "1.8.3");
 google.setOnLoadCallback(function() {
+    jQueryExtensions();
     $(function() {
         
         $(window).resize(function() {            
@@ -17,7 +18,7 @@ google.setOnLoadCallback(function() {
                 var item = $("ul.vids li.ui-selected").data('item');
                 $(".selectedVid .title").text(item.title);
                 $(".selectedVid .description").text(item.description);
-                $(".selectedVid .youtube-player").attr("src","http://www.youtube.com/embed/" + item.id);
+                $(".selectedVid .youtube-player").attr("src","http://www.youtube.com/embed/" + item.id + "?fmt=34");
             }
         });
     });
@@ -29,11 +30,7 @@ function loadSelectedFeed() {
     $.getJSON("http://gdata.youtube.com/feeds/api/users/" + user + "/uploads?v=2&alt=jsonc&max-results=25&start-index=1", displayFeed);
 }
 
-function embeddedVideo(item) {
-    return '<iframe class="youtube-player" type="text/html" width="400" src="http://www.youtube.com/embed/{{id}}" frameborder="0"></iframe>'.replace("{{id}}",item.id)
-}
-
-function shorten(title) {
+function showTitle(title) {
     title = title.replace(/Grind Time Now .resents:/g,"").replace(/Grind Time Now/g,"GTN")
     title = title.replace(/Got Beef\? Presents:/g,"")
     title = title.replace(/KOTD -?/g,"")
@@ -41,19 +38,37 @@ function shorten(title) {
     title = title.replace(/URL PRESENTS/g,"").replace(/URL Presents/g,"")
     title = title.replace(/No Coast Battles:/g,"")
     title = title.replace(/[p|P]resents:/g,"")
+    title = title.replace(new RegExp("(" + mcs() + ")","ig"), "<span class='mc'>$1</span>");
     return title.trim();
+}
+
+function mcs() {
+    return "Fresco|Nocando|Surgeon General|Soul Khan|Dirtbag Dan|Sprungy|Justice|Madness|Tha ?Saurus|Cadallack Ron|Rheteric|XQZ|Unortodox Phrases|deadBeat|T-Rex|Murda Mook|Math Hoffa|poRICH|Sweet Youth|Mantra|Real Deal|Knowledge Medina|Hindu ?Rock|Conceited";
 }
 
 function displayFeed(data,textStatus) {
     var total = data.data.totalItems;
     $("ul.vids").html("");
     $.each(data.data.items, function(i, item) {
-        $("ul.vids").append("<li>" + displayDate(item.uploaded) + shorten(item.title) + "</li>");
+        $("ul.vids").append("<li>" + displayDate(item.uploaded) + showTitle(item.title) + "</li>");
         $("ul.vids li:last").data('item', item);
     });
 }
 
 function displayDate(date) {
-    return "";
-    // return "<span class='date'>" + prettyDate(date) + "</span>";
+    var d = humane_date(date.replace(/\.\d+Z$/g,"Z"));
+    var c = d.match(/Just Now|minute|hour/) ? " today" : "";
+    return "<span class='date" + c + "'>" + d + "</span>";
+}
+
+
+function jQueryExtensions() {
+    jQuery.fn.extend({
+	    highlight: function(search, insensitive, klass){
+		    var regex = new RegExp('(<[^>]*>)|(\\b'+ search.replace(/([-.*+?^${}()|[\]\/\\])/g,"\\$1") +')', insensitive ? 'ig' : 'g');
+		    return this.html(this.html().replace(regex, function(a, b, c){
+			    return (a.charAt(0) == '<') ? a : '<strong class="'+ klass +'">' + c + '</strong>'; 
+		    }));
+	    }        
+    });
 }
