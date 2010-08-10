@@ -11,6 +11,9 @@
     %script(type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAKkF6GsQUptL0jCixC3mq2xSpPuWdh7QwU-b5ywbpDu0AhEOVqxS31qPmHENzwebLkjOvGYD0Msv6OQ")
     %script(type="text/javascript" src="/js/app.js")
     %script(type="text/javascript" src="/js/humane.js")
+    /[if IE]
+      :css
+        .selectFeed .ui-button-text {font-size:14px;width:8em;padding:5px}
     :css
       ul.vids .ui-selecting { background: #FECA40; } 
       ul.vids .ui-selected { background: #F39814; color: white; } 
@@ -19,9 +22,8 @@
       ul.vids li .date {color:gray; padding-right: 5px;}
       ul.vids li .date.today {color: green;}
       ul.vids li .mc {color: blue;}
-      img.splash {
-        width:100%;
-       }
+      img.splash {width:100%;}
+      .browserWarning {font-weight:bold;}
   %body
     .container_12
       .selectFeed.grid_12
@@ -43,6 +45,8 @@
           /%input(type="radio" id="radio8" name="radio" value="playlists/44D174786DB427B9")
           /%label(for="radio8") Vault
       .selectedVid.grid_6
+        /[if IE]
+          %p.browserWarning You are using Internet Explorer. You might have better luck in Firefox or Chrome.
         %img.splash(src="http://www.comicbookmovie.com/images/users/uploads/8558/300movie_story1.jpg")/
         %iframe.youtube-player(type="text/html" src="" frameborder="0")
         %p.title

@@ -3,7 +3,6 @@ google.load("jqueryui", "1.8.3");
 google.setOnLoadCallback(function() {
     jQueryExtensions();
     $(function() {
-        
         $(window).resize(function() {            
             var w = $(".selectedVid").width();
             var h = Math.ceil((w*9.0)/16.0);
@@ -22,6 +21,7 @@ google.setOnLoadCallback(function() {
                 $(".selectedVid .youtube-player").attr("src","http://www.youtube.com/embed/" + item.id + "?fmt=34");
             }
         });
+        $(".browserWarning").click(function() {$(this).fadeOut();});
     });
 });
 
