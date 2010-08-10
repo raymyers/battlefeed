@@ -84,6 +84,10 @@ function displayFeed(data,textStatus) {
 }
 
 function compareFeedItem(a,b) {
+    var cmp = function(x,y) {
+        return x < y ? -1 : (y < x ? 1 : 0);  
+    }
+
     a = a.video ? a.video : a;
     b = b.video ? b.video : b;
     aTitle = a.title.replace(/\s+/g, " ");
@@ -92,19 +96,16 @@ function compareFeedItem(a,b) {
     // Youtube uses "2010-08-06T03:56:33.000Z"
     // What's the best datetime format to use?
     // Must work with Date.parse() on all browsers.
-    aDate = parseYoutubeDate(a.uploaded);
-    bDate = parseYoutubeDate(b.uploaded);
+    aAge = parseDateAsAge(a.uploaded);
+    bAge = parseDateAsAge(b.uploaded);
     // If posted within two days and similar titles, sort alphabetically by title.
     // For things like "Pt 1", "Parts 2 & 3", etc...
-    if (areWithinDays(2, aDate, bDate) && areTitlesSimilar(aTitle, bTitle)) {
-        return compare(aTitle, bTitle);
+    if (areWithinDays(2, aAge, bAge) && areTitlesSimilar(aTitle, bTitle)) {
+        return cmp(aTitle, bTitle);
     }
-    return -compare(aDate, bDate);
+    return cmp(aAge, bAge);
 }
 
-function compare(a,b) {
-    return a < b ? -1 : a > b ? 1 : 0;  
-}
 
 function areWithinDays(window, a,b) {
     var oneDayInSeconds = 60*60*24;

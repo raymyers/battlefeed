@@ -66,7 +66,7 @@ if(typeof jQuery != 'undefined') {
 	};
 }
 
-function parseYoutubeDate(date_str) {
+function parseDateAsAge(date_str) {
 	var time = ('' + date_str).replace(/\.\d+Z$/g,"Z").replace(/-/g,"/").replace(/[TZ]/g," ");
 	var dt = new Date;
 	var seconds = ((dt - new Date(time) + (dt.getTimezoneOffset() * 60000)) / 1000);
