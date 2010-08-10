@@ -32,7 +32,7 @@ function loadSelectedFeed() {
     if (cached) {
         displayFeed(cached,"Success");
     } else {
-        $.getJSON("http://gdata.youtube.com/feeds/api/" + feed + "?v=2&alt=jsonc&max-results=25&start-index=1", displayFeed);
+        $.getJSON("http://gdata.youtube.com/feeds/api/" + feed + "?v=2&alt=jsonc&max-results=25&start-index=1&callback=?", displayFeed);
     }
 }
 
