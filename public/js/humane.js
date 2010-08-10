@@ -29,7 +29,7 @@ function humane_date(date_str){
 		[4730400000, '1 century ago'], // 60*60*24*365*100*1.5
 	];
 
-	var time = ('' + date_str).replace(/-/g,"/").replace(/[TZ]/g," "),
+	var time = ('' + date_str).replace(/\.\d+Z$/g,"Z").replace(/-/g,"/").replace(/[TZ]/g," "),
 		dt = new Date,
 		seconds = ((dt - new Date(time) + (dt.getTimezoneOffset() * 60000)) / 1000),
 		i = 0,
@@ -64,4 +64,11 @@ if(typeof jQuery != 'undefined') {
 				jQuery(this).text(date);
 		});
 	};
+}
+
+function parseYoutubeDate(date_str) {
+	var time = ('' + date_str).replace(/\.\d+Z$/g,"Z").replace(/-/g,"/").replace(/[TZ]/g," ");
+	var dt = new Date;
+	var seconds = ((dt - new Date(time) + (dt.getTimezoneOffset() * 60000)) / 1000);
+    return seconds;
 }

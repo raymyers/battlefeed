@@ -88,9 +88,12 @@ function compareFeedItem(a,b) {
     b = b.video ? b.video : b;
     aTitle = a.title.replace(/\s+/g, " ");
     bTitle = b.title.replace(/\s+/g, " ");
-
-    aDate = a.uploaded;
-    bDate = b.uploaded;
+    
+    // Youtube uses "2010-08-06T03:56:33.000Z"
+    // What's the best datetime format to use?
+    // Must work with Date.parse() on all browsers.
+    aDate = parseYoutubeDate(a.uploaded);
+    bDate = parseYoutubeDate(b.uploaded);
     // If posted within two days and similar titles, sort alphabetically by title.
     // For things like "Pt 1", "Parts 2 & 3", etc...
     if (areWithinDays(2, aDate, bDate) && areTitlesSimilar(aTitle, bTitle)) {
@@ -104,8 +107,8 @@ function compare(a,b) {
 }
 
 function areWithinDays(window, a,b) {
-    var oneDayInSeconds = 1000*60*60*24;
-    return Math.abs(new Date(a).getTime() - new Date(b).getTime()) < (window * oneDayInSeconds); 
+    var oneDayInSeconds = 60*60*24;
+    return Math.abs(a - b) < (window * oneDayInSeconds); 
 }
 
 // Good enough for:
@@ -122,7 +125,7 @@ function areTitlesSimilar(a, b) {
 }
 
 function displayDate(date) {
-    var d = humane_date(date.replace(/\.\d+Z$/g,"Z"));
+    var d = humane_date(date);
     var c = d.match(/Just Now|minute|hour/) ? " today" : "";
     return "<span class='date" + c + "'>" + d + "</span>";
 }
