@@ -76,6 +76,11 @@ function displayFeed(data,textStatus) {
         $("ul.vids").append("<li>" + displayDate(item.uploaded) + showTitle(item.title) + "</li>");
         $("ul.vids li:last").data('item', item);
     });
+    $("ul.vids li").each(function() {
+        var date = $(this).find(".date");
+        var dateWidth = date.outerWidth();
+        $(this).css("text-indent",-dateWidth).css("padding-left", dateWidth);
+    });
 }
 
 function compareFeedItem(a,b) {
