@@ -1,9 +1,3 @@
-if(typeof String.prototype.trim !== 'function') {
-  String.prototype.trim = function() {
-    return this.replace(/^\s+|\s+$/g, ''); 
-  }
-}
-
 google.load("jquery", "1.4.2");
 google.load("jqueryui", "1.8.3");
 google.setOnLoadCallback(function() {
@@ -63,7 +57,7 @@ function showTitle(title) {
     title = title.replace(/\[ ?FULL ?BATTLE ?]/ig,"");
     // Watchlist of MCs. Congrats if you're on it.
     title = title.replace(new RegExp("(" + mcs() + ")","ig"), "<span class='mc'>$1</span>");
-    return title.trim();
+    return trimString(title);
 }
 
 function mcs() {
@@ -128,7 +122,7 @@ function areWithinDays(window, a,b) {
 // Seriously, URL, wtf?
 function areTitlesSimilar(a, b) {
     var regex = /(rd|round|pt|part)s?\.? ?\d.*$/i;
-    return a.replace(regex,"").trim() == b.replace(regex,"").trim();
+    return trimString(a.replace(regex,"")) == trimString(b.replace(regex,""));
 }
 
 function displayDate(date) {
@@ -147,4 +141,9 @@ function jQueryExtensions() {
 		    }));
 	    }        
     });
+}
+
+// IE doesn't define .trim()... I need some kind of IE compat library.
+function trimString(s) {
+    return s.replace(/^\s+|\s+$/g, ''); 
 }
