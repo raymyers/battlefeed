@@ -25,21 +25,36 @@ google.setOnLoadCallback(function() {
 });
 
 function loadSelectedFeed() {
-    var user = $("input:checked", "form").val();
+    var feed = getSelectedFeed();
     $("ul.vids").html("<li>Loading...</li>");
-    $.getJSON("http://gdata.youtube.com/feeds/api/users/" + user + "/uploads?v=2&alt=jsonc&max-results=25&start-index=1", displayFeed);
+    var cached = $("ul.vids").data(feed);
+    if (cached) {
+        displayFeed(cached,"Success");
+    } else {
+        $.getJSON("http://gdata.youtube.com/feeds/api/" + feed + "?v=2&alt=jsonc&max-results=25&start-index=1", displayFeed);
+    }
 }
 
+function getSelectedFeed() {
+    return $("input:checked", "form").val();
+}
+// TODO, counteract all caps.
 function showTitle(title) {
+    // Normalize spacing.
+    title = title.replace(/\s+/g," ");
+    // We don't need to be reminded of the league name in every title.
+    title = title.replace(/^.*presents?:/i,"");
     title = title.replace(/Grind Time Now Presents:/ig,"").replace(/Grind Time Now/ig,"GTN");
     title = title.replace(/Got Beef\?/g,"");
     title = title.replace(/KOTD -?/g,"");
     title = title.replace(/DON'T FLOP -?/g,"");
     title = title.replace(/URL +PRESENTS/ig,"");
     title = title.replace(/No Coast Battles:/g,"");
-    title = title.replace(/presents:/ig,"");
     title = title.replace(/^ * - */,"");
-    title = title.replace(/^ *\/ */,"");
+    title = title.replace(/ ?-? ?FINAL ?$/,"");
+    // We get it. It's a battle.
+    title = title.replace(/\[ ?FULL ?BATTLE ?]/ig,"");
+    // Watchlist of MCs. Congrats if you're on it.
     title = title.replace(new RegExp("(" + mcs() + ")","ig"), "<span class='mc'>$1</span>");
     return title.trim();
 }
@@ -49,12 +64,55 @@ function mcs() {
 }
 
 function displayFeed(data,textStatus) {
+    data.data.items.sort(compareFeedItem);
     var total = data.data.totalItems;
-    $("ul.vids").html("");
+    $("ul.vids").html("").data(getSelectedFeed(), data);    
     $.each(data.data.items, function(i, item) {
+        // For Playlists
+        if (item.video) {
+            item = item.video;
+        }
         $("ul.vids").append("<li>" + displayDate(item.uploaded) + showTitle(item.title) + "</li>");
         $("ul.vids li:last").data('item', item);
     });
+}
+
+function compareFeedItem(a,b) {
+    a = a.video ? a.video : a;
+    b = b.video ? b.video : b;
+    aTitle = a.title.replace(/\s+/g, " ");
+    bTitle = b.title.replace(/\s+/g, " ");
+
+    aDate = a.uploaded;
+    bDate = b.uploaded;
+    // If posted within two days and similar titles, sort alphabetically by title.
+    // For things like "Pt 1", "Parts 2 & 3", etc...
+    if (areWithinDays(2, aDate, bDate) && areTitlesSimilar(aTitle, bTitle)) {
+        return compare(aTitle, bTitle);
+    }
+    return -compare(aDate, bDate);
+}
+
+function compare(a,b) {
+    return a < b ? -1 : a > b ? 1 : 0;  
+}
+
+function areWithinDays(window, a,b) {
+    var oneDayInSeconds = 1000*60*60*24;
+    return Math.abs(new Date(a).getTime() - new Date(b).getTime()) < (window * oneDayInSeconds); 
+}
+
+// Good enough for:
+//   CONCEITED vs GOODZ RD 1
+//   CONCEITED vs GOODZ ROUNDS 2 & 3
+// Still can't catch:
+//   CALICOE vs RICH DOLARZ RD 1
+//   RICH DOLARZ vs CALICOE RD 2
+//   CALICOE vs RICH DOLARZ RD 3
+// Seriously, URL, wtf?
+function areTitlesSimilar(a, b) {
+    var regex = /(rd|round|pt|part)s?\.? ?\d.*$/i;
+    return a.replace(regex,"").trim() == b.replace(regex,"").trim();
 }
 
 function displayDate(date) {
