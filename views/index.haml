@@ -17,6 +17,9 @@
       ul.vids li .date {color:gray; padding-right: 5px;}
       ul.vids li .date.today {color: green;}
       ul.vids li .mc {color: blue;}
+      img.splash {
+        width:100%;
+       }
   %body
     .container_12
       .selectFeed.grid_12
@@ -38,7 +41,8 @@
           /%input(type="radio" id="radio8" name="radio" value="playlists/44D174786DB427B9")
           /%label(for="radio8") Vault
       .selectedVid.grid_6
-        %iframe.youtube-player(type="text/html" width="640" height="385" src="http://www.comicbookmovie.com/images/users/uploads/8558/300movie_story1.jpg" frameborder="0")
+        %img.splash(src="http://www.comicbookmovie.com/images/users/uploads/8558/300movie_story1.jpg")/
+        %iframe.youtube-player(type="text/html" src="" frameborder="0")
         %p.title
         %p.description
       .grid_6

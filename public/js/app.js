@@ -16,6 +16,7 @@ google.setOnLoadCallback(function() {
         $("ul.vids").selectable({
             selected:function(event,ui) {
                 var item = $("ul.vids li.ui-selected").data('item');
+                $("img.splash").remove();
                 $(".selectedVid .title").text(item.title);
                 $(".selectedVid .description").text(item.description == item.title ? "" : item.description);
                 $(".selectedVid .youtube-player").attr("src","http://www.youtube.com/embed/" + item.id + "?fmt=34");
