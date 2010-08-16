@@ -51,6 +51,7 @@ function showTitle(title) {
     title = title.replace(/DON'T FLOP -?/g,"");
     title = title.replace(/URL +PRESENTS/ig,"");
     title = title.replace(/No Coast Battles:/g,"");
+    title = title.replace(/Body Bag Battles ?:?/ig,"");
     title = title.replace(/^ * - */,"");
     title = title.replace(/ ?-? ?FINAL ?$/,"");
     // We get it. It's a battle.
