@@ -49,6 +49,8 @@ function showTitle(title) {
     title = title.replace(/Got Beef\?/g,"");
     title = title.replace(/KOTD -?/g,"");
     title = title.replace(/DON'T FLOP -?/g,"");
+    title = title.replace(/^ ?THE JUNGLE ?/i,"");
+    title = title.replace(/^Texas Battle League:? ?/i,"");
     title = title.replace(/URL +PRESENTS/ig,"");
     title = title.replace(/No Coast Battles:/g,"");
     title = title.replace(/Body Bag Battles ?:?/ig,"");
