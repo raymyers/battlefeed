@@ -1,5 +1,5 @@
-google.load("jquery", "1.4.2");
-google.load("jqueryui", "1.8.3");
+google.load("jquery", "1.4.3");
+google.load("jqueryui", "1.8.6");
 google.setOnLoadCallback(function() {
     jQueryExtensions();
     $(function() {
@@ -19,19 +19,21 @@ google.setOnLoadCallback(function() {
             $(".feedListing").removeClass("grid_3").addClass("grid_6");
             $(window).resize();}
         );
-        $(".selectFeed").buttonset()
+        $(".selectFeed").buttonset();
         $(".selectFeed input").click(loadSelectedFeed);
         loadSelectedFeed();
         $("ul.vids").selectable({
-            selected:function(event,ui) {
+            selected: function(event,ui) {
                 var item = $("ul.vids li.ui-selected").data('item');
                 $("a.splash").remove();
+                $(".hideDuringSplash").show();
                 $(".selectedVid .title").text(item.title);
                 $(".selectedVid .description").text(item.description == item.title ? "" : item.description);
                 $(".selectedVid .youtube-player").attr("src","http://www.youtube.com/embed/" + item.id + "?fmt=34");
             }
         });
         $(".browserWarning").click(function() {$(this).fadeOut();});
+        $(".hideDuringSplash").hide();
     });
 });
 
@@ -67,14 +69,15 @@ function showTitle(title) {
     title = title.replace(/^ * - */,"");
     title = title.replace(/ ?-? ?FINAL ?$/,"");
     // We get it. It's a battle.
-    title = title.replace(/\[ ?FULL ?BATTLE ?]/ig,"");
-    // Watchlist of MCs. Congrats if you're on it.
+    title = title.replace(/\[ ?FULL ?BATTLE ?\]/ig,"");
+    title = title.replace(/Rap Battle *-? */ig,"");
+    // Watchlist of MCs. Congrats if you're in it.
     title = title.replace(new RegExp("(" + mcs() + ")","ig"), "<span class='mc'>$1</span>");
     return trimString(title);
 }
 
 function mcs() {
-    return "Fresco|Nocando|Surgeon General|Soul Khan|Dirtbag Dan|Sprungy|Justice|Madness|Th[a|e] ?Saurus|Cadallack Ron|Rheteric|XQZ|Unortodox Phrases|deadBeat|T-Rex|Murda Mook|Math Hoffa|poRICH|Sweet Youth|Mantra|Real Deal|Knowledge Medina|Hindu ?Rock|Conceited|Calicoe|Iron Solomon";
+    return "Fresco|D-Lor|Nocando|Surgeon General|Passwurdz|Soul Khan|Dirtbag Dan|Sprungy|Justice|360|Madness|Th[a|e] ?Saurus|Cadallack Ron|Rheteric|XQZ|Unorthodox Phrases|deadBeat|T-Rex|Murda Mook|Math Hoffa|Mac Lethal|poRICH|Sweet Youth|Mantra|Real Deal|Knowledge Medina|Hindu ?Rock|Conceited|Calicoe|Iron Solomon";
 }
 
 function displayFeed(data,textStatus) {

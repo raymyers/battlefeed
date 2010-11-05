@@ -6,11 +6,6 @@
     %link(rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.1.1/build/cssreset/reset-min.css")
     /%link(rel="stylesheet" href="http://www.spry-soft.com/grids/grid.css?column_width=60&column_amount=12&gutter_width=20")
     %link(rel="stylesheet" href="http://www.spry-soft.com/grids/fluid_grid.css?column_amount=12")
-    /[if lt IE 9]
-      %script(type="text/javascript" src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js")
-    %script(type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAKkF6GsQUptL0jCixC3mq2xSpPuWdh7QwU-b5ywbpDu0AhEOVqxS31qPmHENzwebLkjOvGYD0Msv6OQ")
-    %script(type="text/javascript" src="/js/app.js")
-    %script(type="text/javascript" src="/js/humane.js")
     /[if IE]
       :css
         .selectFeed .ui-button-text {font-size:14px;width:8em;padding:5px}
@@ -26,6 +21,7 @@
       ul.vids li .mc {color: blue;}
       img.splash {width:100%;}
       .browserWarning {font-weight:bold;}
+      #footer p {font-size:10px;}
   %body
     .container_12
       .selectFeed.grid_12
@@ -57,15 +53,22 @@
       .selectedVid.grid_6
         /[if IE]
           %p.browserWarning You are using Internet Explorer. You might have better luck in Firefox or Chrome.
-        %a.splash(href="http://www.facebook.com/photo.php?pid=48147259&fbid=892179957210&id=15927356")
-          %img(src="http://sphotos.ak.fbcdn.net/hphotos-ak-snc4/hs319.snc4/41269_892179957210_15927356_48147259_4315535_n.jpg")/
+        %a.splash(href="http://grindtimenow.com/events-flyers/184217-gtn-presents-windy-city-takeover-4-flyer.html")
+          %img(src="/img/windy-city-takeover-4-flyer.jpg")/
         /%img.splash(src="http://www.comicbookmovie.com/images/users/uploads/8558/300movie_story1.jpg")/
         %iframe.youtube-player(type="text/html" src="" frameborder="0")
         %p.title
         %p.description
-        %p.enlargeButton
+        %p.enlargeButton.hideDuringSplash
           %input(type="checkbox" id="enlarge")/
           %label(for="enlarge") Enlarge
       .feedListing.grid_6
         %ul.vids
-        
+    #footer.container_12
+      /%p.grid_12 Battle Feed is maintained by <a href="mailto:ray.myers@gmail.com?subject=Battle Feed">DJ Pompey</a>.
+    /[if lt IE 9]
+      %script(type="text/javascript" src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js")
+    %script(type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAKkF6GsQUptL0jCixC3mq2xSpPuWdh7QwU-b5ywbpDu0AhEOVqxS31qPmHENzwebLkjOvGYD0Msv6OQ")
+    %script(type="text/javascript" src="/js/app.js")
+    %script(type="text/javascript" src="/js/humane.js")
+    
