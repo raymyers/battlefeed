@@ -21,8 +21,20 @@
       ul.vids li .date.today {color: green;}
       ul.vids li .mc {color: blue;}
       img.splash {width:100%;}
+      .hideDuringSlash * {display: none;}
+      #splash img.spinner {padding:100px;}
       .browserWarning {font-weight:bold;}
-      #footer p {font-size:10px;}
+      /*#push, #footer {height: 4em}*/
+      #footer {font-size:10pt; width: 70em;}
+    :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-20861569-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
   %body
     .container_12
       .selectFeed.grid_12
@@ -56,8 +68,9 @@
       .selectedVid.grid_6
         /[if IE]
           %p.browserWarning You are using Internet Explorer. You might have better luck in Firefox or Chrome.
-        %a.splash(href="http://grindtimenow.com/events-flyers/184217-gtn-presents-windy-city-takeover-4-flyer.html")
-          %img(src="/img/windy-city-takeover-4-flyer.jpg")/
+        %a.splash#splash(href="http://board.rapmusic.com/battle-video-archives/1261472-no-coast-valentines-day-massacre-fliers-mudslinger-v-madness-more.html")
+          %img.flyer(src="img/flyer.jpg")
+          %img.spinner(src="/img/spinner.gif")/
         /%img.splash(src="http://www.comicbookmovie.com/images/users/uploads/8558/300movie_story1.jpg")/
         %iframe.youtube-player(type="text/html" src="" frameborder="0")
         %p.title
@@ -67,8 +80,13 @@
           %label(for="enlarge") Enlarge
       .feedListing.grid_6
         %ul.vids
+      #push
     #footer.container_12
       /%p.grid_12 Battle Feed is maintained by <a href="mailto:ray.myers@gmail.com?subject=Battle Feed">DJ Pompey</a>.
+      .grid_12
+        /%p Copyright &#169; 2011 Cadrlife, LLC.
+        /%p Source code available under the terms of GNU GPL.
+        /%p All videos owned by their respective leagues.
     /[if lt IE 9]
       %script(type="text/javascript" src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js")
     %script(type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAKkF6GsQUptL0jCixC3mq2xSpPuWdh7QwU-b5ywbpDu0AhEOVqxS31qPmHENzwebLkjOvGYD0Msv6OQ")

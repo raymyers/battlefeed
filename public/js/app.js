@@ -3,6 +3,7 @@ google.load("jqueryui", "1.8.6");
 google.setOnLoadCallback(function() {
     jQueryExtensions();
     $(function() {
+        
         $(window).resize(function() {
             var w = $(".selectedVid").width();
             var h = Math.ceil((w*9.0)/16.0);
@@ -97,6 +98,11 @@ function displayFeed(data,textStatus) {
         var dateWidth = date.outerWidth();
         $(this).css("text-indent",-dateWidth).css("padding-left", dateWidth);
     });
+    hideSpinner();
+}
+
+function hideSpinner() {
+    $("#splash .spinner").remove();
 }
 
 function compareFeedItem(a,b) {
