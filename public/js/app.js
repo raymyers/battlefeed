@@ -65,6 +65,7 @@ function showTitle(title) {
     title = title.replace(/^ ?THE JUNGLE ?/i,"");
     title = title.replace(/^Texas Battle League:? ?/i,"");
     title = title.replace(/URL +PRESENTS/ig,"");
+    title = title.replace(/SMACK ?\/ */ig,"");
     title = title.replace(/No Coast Battles:/g,"");
     title = title.replace(/Body Bag Battles ?:?/ig,"");
     title = title.replace(/^ * - */,"");
@@ -78,7 +79,12 @@ function showTitle(title) {
 }
 
 function mcs() {
-    return "Dizaster|Fresco|D-Lor|Nocando|Surgeon General|Passwurdz|Soul Khan|Dirtbag Dan|Sprungy|Justice|360|Madness|Th[a|e] ?Saurus|Cadallack Ron|Rheteric|XQZ|Unorthodox Phrases|deadBeat|T-Rex|Murda Mook|Math Hoffa|Mac Lethal|poRICH|Sweet Youth|Mantra|Real Deal|Knowledge Medina|Hindu ?Rock|Conceited|Calicoe|Iron Solomon|Cortez|DNA|Hollohan|Charron";
+    return "Dizaster|Fresco|D-Lor|Nocando|Surgeon General|Passwurdz|" + 
+"Soul Khan|Dirtbag Dan|Sprungy|Justice|360|Madness|Th[a|e] ?Saurus|" +
+"Cadallack Ron|Rheteric|XQZ|Unorthodox Phrases|deadBeat|T-Rex|" + 
+"Murda Mook|Math Hoffa|Mac Lethal|poRICH|Sweet Youth|Mantra|" + 
+"Real Deal|Knowledge Medina|Hindu ?Rock|Conceited|Calicoe|" +
+"Iron Solomon|Cortez|DNA|Hollohan|Charron|Oshea";
 }
 
 function displayFeed(data,textStatus) {
