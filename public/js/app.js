@@ -80,11 +80,11 @@ function showTitle(title) {
 
 function mcs() {
     return "Dizaster|Fresco|D-Lor|Nocando|Surgeon General|Passwurdz|" + 
-"Soul Khan|Dirtbag Dan|Sprungy|Justice|360|Madness|Th[a|e] ?Saurus|" +
+"Soul Khan|Dirtbag Dan|Justice|360|Madness|Th[a|e] ?Saurus|" +
 "Cadallack Ron|Rheteric|XQZ|Unorthodox Phrases|deadBeat|T-Rex|" + 
-"Murda Mook|Math Hoffa|Mac Lethal|poRICH|Sweet Youth|Mantra|" + 
-"Real Deal|Knowledge Medina|Hindu ?Rock|Conceited|Calicoe|" +
-"Iron Solomon|Cortez|DNA|Hollohan|Charron|Oshea";
+"Murda Mook|Math Hoffa|Mac Lethal|poRICH|Mantra|" + 
+"Real Deal|Knowledge Medina|Conceited|" +
+"Iron Solomon|Cortez|DNA|Hollohan|Charron|Oshea|QP|Eurgh|Illmaculate|Ness Lee|Sonny Bamboo";
 }
 
 function displayFeed(data,textStatus) {
