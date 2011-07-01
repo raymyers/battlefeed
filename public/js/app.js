@@ -84,7 +84,8 @@ function mcs() {
 "Cadallack Ron|Rheteric|XQZ|Unorthodox Phrases|deadBeat|T-Rex|" + 
 "Murda Mook|Math Hoffa|Mac Lethal|poRICH|Mantra|" + 
 "Real Deal|Knowledge Medina|Conceited|" +
-"Iron Solomon|Cortez|DNA|Hollohan|Charron|Oshea|QP|Eurgh|Illmaculate|Ness Lee|Sonny Bamboo";
+"Iron Solomon|Cortez|DNA|Hollohan|Charron|Oshea|QP|Eurgh|Illmaculate|Ness Lee|Sonny Bamboo|ATM|Organic|Organik|Biscuit|" +
+"Bender";
 }
 
 function displayFeed(data,textStatus) {
