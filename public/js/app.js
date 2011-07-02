@@ -87,7 +87,7 @@ function mcs() {
 "Murda Mook|Math Hoffa|Mac Lethal|poRICH|Mantra|" + 
 "Real Deal|Knowledge Medina|Conceited|" +
 "Iron Solomon|Cortez|DNA|Hollohan|Charron|Oshea|QP|Eurgh|Illmaculate|Ness Lee|Sonny Bamboo|ATM|Organic|Organik|Biscuit|" +
-"Bender|Mr.Biscuit";
+"Bender|Mr.Biscuit|Okwerdz|Skils|Nils";
 }
 
 function displayFeed(data,textStatus) {
