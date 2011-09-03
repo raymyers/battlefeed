@@ -1,43 +1,6 @@
-google.load("jquery", "1.4.3");
-google.load("jqueryui", "1.8.6");
-google.setOnLoadCallback(function() {
-    jQueryExtensions();
-    $(function() {
-        
-        $(window).resize(function() {
-            var w = $(".selectedVid").width();
-            var h = Math.ceil((w*9.0)/16.0);
-            $(".youtube-player").attr('height',h).attr('width',w);                                             
-        }).resize();
+google.load("jquery", "1.6.2");
+google.load("jqueryui", "1.8.14");
 
-        $(".enlargeButton input").button().toggle(
-          function() {
-            $(".selectedVid").removeClass("grid_6").addClass("grid_9");
-            $(".feedListing").removeClass("grid_6").addClass("grid_3");
-            $(window).resize();},
-          function() {
-            $(".selectedVid").removeClass("grid_9").addClass("grid_6");
-            $(".feedListing").removeClass("grid_3").addClass("grid_6");
-            $(window).resize();}
-        );
-        $(".selectFeed").buttonset();
-        $(".selectFeed input").click(loadSelectedFeed);
-        loadSelectedFeed();
-        $("ul.vids").selectable({
-            selected: function(event,ui) {
-                var item = $("ul.vids li.ui-selected").data('item');
-                $("a.splash").remove();
-                $(".hideDuringSplash").show();
-                $(".selectedVid .title").text(item.title);
-                $(".selectedVid .viewCount").text(addCommas(item.viewCount +" views"));
-                $(".selectedVid .description").text(item.description == item.title ? "" : item.description);
-                $(".selectedVid .youtube-player").attr("src","http://www.youtube.com/embed/" + item.id + "?fmt=34");
-            }
-        });
-        $(".browserWarning").click(function() {$(this).fadeOut();});
-        $(".hideDuringSplash").hide();
-    });
-});
 
 function loadSelectedFeed() {
     var feed = getSelectedFeed();
@@ -63,6 +26,8 @@ function showTitle(title) {
     title = title.replace(/Got Beef\?/g,"");
     title = title.replace(/KOTD -?/g,"");
     title = title.replace(/DON'T FLOP -?/g,"");
+    title = title.replace(/Basementality TV: /g,"");
+    title = title.replace(/Basementality Battles: ?:/g,"");
     title = title.replace(/^ ?THE JUNGLE ?/i,"");
     title = title.replace(/^Texas Battle League:? ?/i,"");
     title = title.replace(/URL +PRESENTS/ig,"");
@@ -75,6 +40,9 @@ function showTitle(title) {
     // We get it. It's a battle.
     title = title.replace(/\[ ?FULL ?BATTLE ?\]/ig,"");
     title = title.replace(/Rap Battle *-? */ig,"");
+    title = title.replace(/w\/ guest judge .*/ig,"");
+    title = title.replace(/w\/ judge .*/ig,"");
+    title = title.replace(/with guest judge .*/ig,"");
     // Watchlist of MCs. Congrats if you're in it.
     title = title.replace(new RegExp("(" + mcs() + ")","ig"), "<span class='mc'>$1</span>");
     return trimString(title);
@@ -87,7 +55,7 @@ function mcs() {
 "Murda Mook|Math Hoffa|Mac Lethal|poRICH|Mantra|" + 
 "Real Deal|Knowledge Medina|Conceited|" +
 "Iron Solomon|Cortez|DNA|Hollohan|Charron|Oshea|QP|Eurgh|Illmaculate|Ness Lee|Sonny Bamboo|ATM|Organic|Organik|Biscuit|" +
-"Bender|Mr.Biscuit|Okwerdz|Skils|Nils";
+"Bender|Mr.Biscuit|Okwerdz|Skils|Nils|Shazaam|Henry Bowers";
 }
 
 function displayFeed(data,textStatus) {

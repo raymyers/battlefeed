@@ -14,6 +14,14 @@ def app = Ratpack.app {
         setHeader 'Content-Type', 'text/html'
         haml "views/index.haml"
     }
+    get("/vault") {
+        setHeader 'Content-Type', 'text/html'
+        haml "views/lore.haml"
+    }
+    get("/lore") {
+        setHeader 'Content-Type', 'text/html'
+        haml "views/lore.haml"
+    }
 }
 
 RatpackServlet.serve(app,5000)
