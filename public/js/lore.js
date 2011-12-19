@@ -1,14 +1,11 @@
-var dataTable;
 var matching = 0;
 var startIndex = 1;
-var term = 'Frank Stacks';
+var term = 'dumbfoundead';
 google.setOnLoadCallback(function() {
 
   $(function() {
       $("#watch").addClass('grid_6');
-      rowSelectionInit();
-      dataTable = $("table#lore").dataTable({"bJQueryUI": true,"iDisplayLength": 200,"aaSortingFixed":[[1,'desc'],[0,'asc']],"aLengthMenu": []});
-       $(window).resize(function() {
+      $(window).resize(function() {
           var w = $("#watch").width();
           var h = Math.ceil((w*9.0)/16.0);
           $(".youtube-player").height(h).width(w);
@@ -29,10 +26,7 @@ google.setOnLoadCallback(function() {
 
 });
 function clearRows() {
-   var size = $("#lore tr").size() - 1;
-   for (;size > 0; size--) {
-     dataTable.fnDeleteRow(0);
-   }
+   $("#lore tr").remove();
 }
 
 var leagueUsers = ['jumpoff','amilonakis','drect','kingofthedot','dontflop','gotbeefbattles','jfox209sons','theurltv','nocoastraps','crtclrp','bodybagbattles','absyrd','texasbattleleague','fliptopbattles'];
@@ -96,7 +90,6 @@ title.indexOf('blog') > -1);
 
 var callsRemaining = 0;
 function displayLoreFeed(data,textStatus) {
-    callsRemaining--;
     //data.data.items.sort(compareFeedItem);
     var total = data.data.totalItems;
     if (data.data.items) {
@@ -109,9 +102,10 @@ function displayLoreFeed(data,textStatus) {
         var title = showTitle(item.title);
         if(title.toLowerCase().indexOf(term.toLowerCase()) > -1 && isUsableTitle(title)) {
           matching++;
-          var idx = dataTable.fnAddData([title,item.uploaded.substring(0,10),addCommas(item.viewCount),leagueMap[item.uploader.toLowerCase()]]);
-          $(dataTable.fnGetNodes(idx[0])).data('item', item);
-		}
+          var tableBody = $("table#lore tbody");
+          tableBody.append(buildItemRowHtml(title, item));
+          tableBody.find("tr:last").data('item', item);
+	}
       });
     }
     /*if ((total > 50 + startIndex) && matching < 50) {
@@ -119,19 +113,25 @@ function displayLoreFeed(data,textStatus) {
        startIndex += 50;
     } else {
     }*/
-    if (callsRemaining < 1) {
+    if (--callsRemaining < 1) {
       callsRemaining = 0;
+      rowSelectionInit();
     }
   }
+function buildItemRowHtml(title, item) {
+  return "<tr>" + 
+	  td(title) + 
+	  td(item.uploaded.substring(0,10)) +
+	  td(addCommas(item.viewCount)) +
+	  td(leagueMap[item.uploader.toLowerCase()]) +
+          "</tr>";
+}
+
+function td(content) {
+  return "<td>" + content + "</td>";
+}
 
 function rowSelectionInit() {
-    $("table#lore tbody").live('click',function(event) {
-                $(dataTable.fnSettings().aoData).each(function (){
-                        $(this.nTr).removeClass('row_selected');
-                });
-        var node = event.target.parentNode;
-        $(node).addClass('row_selected');
-    });
     $("table#lore tbody").selectable({
       selected: function(event,ui) {
         var item = $("tr.ui-selected").data('item');
