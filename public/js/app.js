@@ -1,21 +1,28 @@
 google.load("jquery", "1.6.2");
 google.load("jqueryui", "1.8.14");
 
+var selectedFeed = "";
 
 function loadSelectedFeed() {
-    var feed = getSelectedFeed();
+    setSelectedFeed($(this));
+    var feed = getSelectedFeed($(this));
     $("ul.vids").html("<li>Loading...</li>");
     var cached = $("ul.vids").data(feed);
     if (cached) {
         displayFeed(cached,"Success");
     } else {
-        $.getJSON("http://gdata.youtube.com/feeds/api/" + feed + "?v=2&alt=jsonc&max-results=25&start-index=1&callback=?", displayFeed);
+        $.getJSON("http://gdata.youtube.com/feeds/api/" + feed + "?v=2&alt=jsonc&max-results=30&start-index=1&callback=?", displayFeed);
     }
 }
 
 function getSelectedFeed() {
-    return $("input:checked", "form").val();
+    return selectedFeed;
 }
+
+function setSelectedFeed(elt) {
+    selectedFeed = elt.attr("data-path");
+}
+
 // TODO, counteract all caps.
 function showTitle(title) {
     // Normalize spacing.

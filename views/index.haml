@@ -6,12 +6,16 @@
     %link(rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.1.1/build/cssreset/reset-min.css")
     /%link(rel="stylesheet" href="http://www.spry-soft.com/grids/grid.css?column_width=60&column_amount=12&gutter_width=20")
     /%link(rel="stylesheet" href="http://www.spry-soft.com/grids/fluid_grid.css?column_amount=12")
-    %link(rel="stylesheet" href="css/grid.css")
+    %link(rel="stylesheet" href="css/1020grid.css")
+    %link(rel="stylesheet" href="css/button.css?bust")
     /[if IE]
       :css
         .selectFeed .ui-button-text {font-size:14px;width:8em;padding:5px}
     :css
       .selectFeed .ui-button-text {font-size:14px;padding:12px}
+      #leagueContainer {padding-bottom:1px;}
+      .selectFeed div {float:left}
+      .selectFeed div {margin:1px}
       .enlargeButton .ui-button-text {font-size:12px;padding:12px}
       ul.vids .ui-selecting { background: #FECA40; } 
       ul.vids .ui-selected { background: #F39814; color: white; } 
@@ -37,38 +41,23 @@
         })();
   %body
     .container_12
-      .selectFeed.grid_12
-        %form
-          %input(type="radio" id="radio1" name="radio" value="users/drect/uploads" checked)
-          %label(for="radio1") Grind Time
-          %input(type="radio" id="radio2" name="radio" value="users/KingOfTheDot/uploads")
-          %label(for="radio2") KOTD
-          %input(type="radio" id="radio10" name="radio" value="users/GroundZeroBattles/uploads")
-          %label(for="radio10") Ground Zero
-          %input(type="radio" id="radio3" name="radio" value="users/DontFlop/uploads")
-          %label(for="radio3") Don't Flop
-          %input(type="radio" id="radio4" name="radio" value="users/gotbeefbattles/uploads")
-          %label(for="radio4") Got Beef?
-          %input(type="radio" id="radio6" name="radio" value="users/theUrltv/uploads")
-          %label(for="radio6") URL
-          %input(type="radio" id="radio7" name="radio" value="users/NoCoastRaps/uploads")
-          %label(for="radio7") No Coast
-          %input(type="radio" id="radio8" name="radio" value="users/crtclrp/uploads")
-          %label(for="radio8") Basementality
-          %input(type="radio" id="radio9" name="radio" value="users/BodyBagBattles/uploads")
-          %label(for="radio9") Body Bag
-          %input(type="radio" id="radio11" name="radio" value="users/TexasBattleLeague/uploads")
-          %label(for="radio11") Texas
-          %input(type="radio" id="radio12" name="radio" value="users/fliptopbattles/uploads")
-          %label(for="radio12") Flip Top
-          /%input(type="radio" id="radio12" name="radio" value="users/AMilonakis/uploads")
-          /%label(for="radio12") AMilonakis
-          /%input(type="radio" id="radio8" name="radio" value="playlists/44D174786DB427B9")
-          /%label(for="radio8") Vault
+      #leagueContainer.grid_12
+        .selectFeed.leagues
+          .button(data-path="users/drect/uploads") Grind Time
+          .button(data-path="users/KingOfTheDot/uploads") KOTD
+          .button(data-path="users/GroundZeroBattles/uploads") Ground Zero
+          .button(data-path="users/DontFlop/uploads") Dont Flop
+          .button(data-path="users/gotbeefbattles/uploads") Got Beef
+          .button(data-path="users/theUrltv/uploads") URL
+          .button(data-path="users/NoCoastRaps/uploads") No Coast
+          .button(data-path="users/crtclrp/uploads") Basementality
+          .button(data-path="users/BodyBagBattles/uploads") Bodybag
+          .button(data-path="users/TexasBattleLeague/uploads") Texas
+          .button(data-path="users/fliptopbattles/uploads") Flip Top
       .selectedVid.grid_6
         /[if IE]
           %p.browserWarning You are using Internet Explorer. You might have better luck in Firefox or Chrome.
-        %a.splash#splash(href="http://board.rapmusic.com/battle-video-archives/1261472-no-coast-valentines-day-massacre-fliers-mudslinger-v-madness-more.html")
+        %a.splash#splash(non-href="http://board.rapmusic.com/battle-video-archives/1261472-no-coast-valentines-day-massacre-fliers-mudslinger-v-madness-more.html")
           %img.flyer(src="img/BlackOut2poster_mockup32.png")
           %img.spinner(src="/img/spinner.gif")/
         /%img.splash(src="http://www.comicbookmovie.com/images/users/uploads/8558/300movie_story1.jpg")/
@@ -91,7 +80,7 @@
     /[if lt IE 9]
       %script(type="text/javascript" src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js")
     %script(type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAKkF6GsQUptL0jCixC3mq2xSpPuWdh7QwU-b5ywbpDu0AhEOVqxS31qPmHENzwebLkjOvGYD0Msv6OQ")
+    %script(type="text/javascript" src="/js/humane.js")
     %script(type="text/javascript" src="/js/app.js")
     %script(type="text/javascript" src="/js/feed.js")
-    %script(type="text/javascript" src="/js/humane.js")
     

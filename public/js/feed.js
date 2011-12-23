@@ -6,6 +6,7 @@ google.setOnLoadCallback(function() {
             var w = $(".selectedVid").width();
             var h = Math.ceil((w*9.0)/16.0);
             $(".youtube-player").attr('height',h).attr('width',w);                                             
+            $(".flyer").attr('width',w);                                             
         }).resize();
 
         $(".enlargeButton input").button().toggle(
@@ -18,9 +19,9 @@ google.setOnLoadCallback(function() {
             $(".feedListing").removeClass("grid_3").addClass("grid_6");
             $(window).resize();}
         );
-        $(".selectFeed").buttonset();
-        $(".selectFeed input").click(loadSelectedFeed);
-        loadSelectedFeed();
+        $(".selectFeed .button").click(loadSelectedFeed);
+        $(".selectFeed .button:first").click();
+        
         $("ul.vids").selectable({
             selected: function(event,ui) {
                 var item = $("ul.vids li.ui-selected").data('item');

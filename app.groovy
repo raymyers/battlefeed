@@ -14,6 +14,10 @@ def app = Ratpack.app {
         setHeader 'Content-Type', 'text/html'
         haml "views/index.haml"
     }
+    get("/redesign") {
+        setHeader 'Content-Type', 'text/html'
+        haml "views/index-redesign.haml"
+    }
     get("/vault") {
         setHeader 'Content-Type', 'text/html'
         haml "views/lore.haml"
