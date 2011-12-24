@@ -41,7 +41,13 @@ function showTitle(title) {
     title = title.replace(/FlipTop ?- ?/ig,"");
     title = title.replace(/SMACK ?\/ */ig,"");
     title = title.replace(/No Coast Battles:/g,"");
+    title = title.replace(/No Coast ?:? ?/g,"");
     title = title.replace(/Body Bag Battles ?:?/ig,"");
+    title = title.replace(/Basementality Battles ?:?/ig,"");
+    title = title.replace(/^ ?GZ ?-? ?/ig,"");
+    title = title.replace(/^ ?PY ?-? ?/ig,"");
+    title = title.replace(/^GOT BEEF\? ?-? ?/ig,"");
+    title = title.replace(/^War Of The Worlds ?-? ?/ig,"");
     title = title.replace(/^ * - */,"");
     title = title.replace(/ ?-? ?FINAL ?$/,"");
     // We get it. It's a battle.
@@ -50,6 +56,8 @@ function showTitle(title) {
     title = title.replace(/w\/ guest judge .*/ig,"");
     title = title.replace(/w\/ judge .*/ig,"");
     title = title.replace(/with guest judge .*/ig,"");
+    title = title.replace(/^ ?: ?/ig,"");
+    title = title.replace(/^ ?\/ ?/ig,"");
     // Watchlist of MCs. Congrats if you're in it.
     title = title.replace(new RegExp("(" + mcs() + ")","ig"), "<span class='mc'>$1</span>");
     return trimString(title);
