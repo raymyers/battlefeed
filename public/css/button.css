@@ -25,7 +25,7 @@
    background: #000000;
    color: #ccc;
    }
-.button:active {
+.button:active, .button.selected {
    border-top-color: #1b435e;
    background: #1b435e;
    }

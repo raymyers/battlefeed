@@ -4,6 +4,8 @@ google.load("jqueryui", "1.8.14");
 var selectedFeed = "";
 
 function loadSelectedFeed() {
+    $(".selectFeed .selected").removeClass("selected");
+    $(this).addClass("selected");
     setSelectedFeed($(this));
     var feed = getSelectedFeed($(this));
     $("ul.vids").html("<li>Loading...</li>");
