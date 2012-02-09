@@ -26,6 +26,10 @@ def app = Ratpack.app {
         setHeader 'Content-Type', 'text/html'
         haml "views/lore.haml"
     }
+    get("/nocoast") {
+        setHeader 'Content-Type', 'text/html'
+        haml "views/nocoast-home.haml"
+    }
 }
 
 RatpackServlet.serve(app,5000)

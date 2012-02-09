@@ -1,0 +1,44 @@
+!!! 5
+%html
+  %head
+    %title No Coast Battle League
+    %meta(property="og:title" content="No Coast Battle")
+    %meta(property="og:type" content="website")
+    %meta(property="og:url" content="http://www.nocoastraps.com")
+    %meta(property="og:image" content="http://battlefeed.djpompey.com/img/NoCoastLogo.png")
+    %meta(property="og:description" content="Hip-Hop battle league founded in Columbia, MO")
+    %link(rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.1.1/build/cssreset/reset-min.css")
+    %link(rel="stylesheet" href="css/960_12_col.css")
+    /[if IE]
+      :css
+    :css
+    :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-20861569-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+  %body
+    #header.container_12
+      .grid_12
+        /%img(src="http://battlefeed.djpompey.com/img/NoCoastLogo.png")
+        No Coast Battles
+    #navigation.container_12 
+      #homeLink.navLink.grid_2
+      /.navLink.grid_2
+      /  Events
+      #battleLink.navLink.grid_2
+        %a(href="http://www.youtube.com/user/NoCoastRaps") YouTube Channel
+    #homeContent.content.container_12
+      .grid_12 Home
+    #battleContent.content.container_12(style='display:none')
+      .grid_12 Battles
+    #footer.container_12
+      .grid_12
+    /[if lt IE 9]
+      %script(type="text/javascript" src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js")
+    %script(type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAKkF6GsQUptL0jCixC3mq2xSpPuWdh7QwU-b5ywbpDu0AhEOVqxS31qPmHENzwebLkjOvGYD0Msv6OQ")
+    %script(type="text/javascript" src="/js/nocoast.js")
