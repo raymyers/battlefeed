@@ -69,11 +69,12 @@ function mcs() {
     return "Dizaster|Fresco|D-Lor|Nocando|Surgeon General|Passwurdz|" + 
 "Rone|Kid Twist|" +
 "Soul Khan|Dirtbag Dan|Justice|360|Madness|Th[a|e] ?Saurus|" +
-"Cadallack Ron|Rheteric|XQZ|Unorthodox Phrases|deadBeat|T-Rex|" + 
+"Cadallack Ron|Rheteric|XQZ|RCX|Unorthodox Phrases|deadBeat|T-Rex|" + 
 "Murda Mook|Math Hoffa|Mac Lethal|poRICH|Mantra|" + 
 "Real Deal|Knowledge Medina|Conceited|" +
 "Iron Solomon|Cortez|DNA|Hollohan|Charron|Oshea|QP|Eurgh|Illmaculate|Ness Lee|Sonny Bamboo|ATM|Organic|Organik|Biscuit|" +
-"Bender|Mr.Biscuit|Okwerdz|Skils|Nils|Shazaam|Henry Bowers|Tantrum";
+"Bender|Mr.Biscuit|Okwerdz|Skils|Nils|Shazaam|Henry Bowers|Tantrum|" + 
+"D'Meitz|Meitzer";
 }
 
 function displayFeed(data,textStatus) {
