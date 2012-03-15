@@ -31,7 +31,7 @@ function showTitle(title) {
     title = title.replace(/\s+/g," ");
     // We don't need to be reminded of the league name in every title.
     title = title.replace(/^.*presents?:/i,"");
-    title = title.replace(/Grind Time Now Presents:/ig,"").replace(/Grind Time Now/ig,"GTN");
+    title = title.replace(/Grind Time Now Presents:?/ig,"").replace(/Grind Time Now/ig,"GTN");
     title = title.replace(/Got Beef\?/g,"");
     title = title.replace(/KOTD -?/g,"");
     title = title.replace(/DON'T FLOP -?/g,"");
@@ -40,7 +40,6 @@ function showTitle(title) {
     title = title.replace(/^ ?THE JUNGLE ?/i,"");
     title = title.replace(/^Texas Battle League:? ?/i,"");
     title = title.replace(/URL +PRESENTS/ig,"");
-    title = title.replace(/FlipTop ?- ?/ig,"");
     title = title.replace(/SMACK ?\/ */ig,"");
     title = title.replace(/No Coast Battles:/g,"");
     title = title.replace(/No Coast ?:? ?/g,"");
@@ -49,17 +48,22 @@ function showTitle(title) {
     title = title.replace(/^ ?GZ ?-? ?/ig,"");
     title = title.replace(/^ ?PY ?-? ?/ig,"");
     title = title.replace(/^GOT BEEF\? ?-? ?/ig,"");
+    title = title.replace(/^GTNA:? ?/ig,"");
+    title = title.replace(/^GTN Aust:? ?/ig,"");
     title = title.replace(/^War Of The Worlds ?-? ?/ig,"");
     title = title.replace(/^ * - */,"");
     title = title.replace(/ ?-? ?FINAL ?$/,"");
     // We get it. It's a battle.
     title = title.replace(/\[ ?FULL ?BATTLE ?\]/ig,"");
     title = title.replace(/Rap Battle *-? */ig,"");
-    title = title.replace(/w\/ guest judge .*/ig,"");
-    title = title.replace(/w\/ judge .*/ig,"");
-    title = title.replace(/with guest judge .*/ig,"");
-    title = title.replace(/^ ?: ?/ig,"");
+    title = title.replace(/^ ?presents ?/ig,"");
+    //title = title.replace(/w\/ guest judge .*/ig,"");
+    //title = title.replace(/w\/ judge .*/ig,"");
+    //title = title.replace(/with guest judge .*/ig,"");
+    //title = title.replace(/^ ?2012 /ig,"");
     title = title.replace(/^ ?\/ ?/ig,"");
+    //title = title.replace(/^ ?- ?/ig,"");
+    title = title.replace(/^ ?: ?/ig,"");
     // Watchlist of MCs. Congrats if you're in it.
     title = title.replace(new RegExp("(" + mcs() + ")","ig"), "<span class='mc'>$1</span>");
     return trimString(title);
@@ -74,7 +78,7 @@ function mcs() {
 "Real Deal|Knowledge Medina|Conceited|" +
 "Iron Solomon|Cortez|DNA|Hollohan|Charron|Oshea|QP|Eurgh|Illmaculate|Ness Lee|Sonny Bamboo|ATM|Organic|Organik|Biscuit|" +
 "Bender|Mr.Biscuit|Okwerdz|Skils|Nils|Shazaam|Henry Bowers|Tantrum|" + 
-"D'Meitz|Meitzer|Jonny Storm|Isaac Knox";
+"D'Meitz|Meitzer|Jonny Storm|Isaac Knox|Tricky P|Heir Jordan|Uno Lavoz";
 }
 
 function displayFeed(data,textStatus) {
