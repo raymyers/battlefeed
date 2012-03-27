@@ -41,7 +41,7 @@ function showTitle(title) {
     title = title.replace(/^Texas Battle League:? ?/i,"");
     title = title.replace(/URL +PRESENTS/ig,"");
     title = title.replace(/SMACK ?\/ */ig,"");
-    title = title.replace(/No Coast Battles:/g,"");
+    title = title.replace(/No Coast Battles?:/g,"");
     title = title.replace(/No Coast ?:? ?/g,"");
     title = title.replace(/Body Bag Battles ?:?/ig,"");
     title = title.replace(/Basementality Battles ?:?/ig,"");
@@ -73,12 +73,13 @@ function mcs() {
     return "Dizaster|Fresco|D-Lor|Nocando|Surgeon General|Passwurdz|" + 
 "Rone|Kid Twist|" +
 "Soul Khan|Dirtbag Dan|360|Madness|Th[a|e] ?Saurus|" +
-"Cadallack Ron|Rheteric|XQZ|RCX|Unorthodox Phrases|deadBeat|T-Rex|" + 
+"Cadallack Ron|Rheteric|XQZ|Unorthodox Phrases|deadBeat|T-Rex|" + 
 "Murda Mook|Mac Lethal|poRICH|Mantra|" + 
 "Real Deal|Knowledge Medina|Conceited|" +
 "Iron Solomon|Cortez|DNA|Hollohan|Charron|Oshea|Eurgh|Illmaculate|Ness Lee|Sonny Bamboo|ATM|Organic|Organik|Biscuit|" +
 "Bender|Mr.Biscuit|Okwerdz|Skils|Nils|Shazaam|Henry Bowers|Tantrum|" + 
-"D'Meitz|Meitzer|Jonny Storm|Isaac Knox|Tricky P|Heir Jordan|Uno Lavoz";
+"D'Meitz|Meitzer|Jonny Storm|Isaac Knox|Tricky P|Heir Jordan|Uno Lavoz|" +
+"Cruger|Pat Stay|Knamelis|Mark Grist|Arsonal|Carter Deems|Michael White";
 }
 
 function displayFeed(data,textStatus) {
