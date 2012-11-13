@@ -20,11 +20,11 @@ def app = Ratpack.app {
     }
     get("/vault") {
         setHeader 'Content-Type', 'text/html'
-        haml "views/lore.haml"
+        haml("views/vault.haml").replace("DEFAULT_BATTLER", params.battler ?: "dumbfoundead")
     }
     get("/lore") {
         setHeader 'Content-Type', 'text/html'
-        haml "views/lore.haml"
+        haml "views/vault.haml"
     }
     get("/nocoast") {
         setHeader 'Content-Type', 'text/html'

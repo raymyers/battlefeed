@@ -1,9 +1,10 @@
 var matching = 0;
 var startIndex = 1;
-var term = 'dumbfoundead';
+var term;
 google.setOnLoadCallback(function() {
 
   $(function() {
+      term = $("#term").val();
       $("#watch").addClass('grid_6');
       $(window).resize(function() {
           var w = $("#watch").width();
@@ -29,7 +30,7 @@ function clearRows() {
    $("#lore tr").remove();
 }
 
-var leagueUsers = ['jumpoff','amilonakis','drect','kingofthedot','dontflop','gotbeefbattles','jfox209sons','theurltv','nocoastraps','crtclrp','bodybagbattles','absyrd','texasbattleleague','fliptopbattles'];
+var leagueUsers = ['jumpoff','amilonakis','drect','kingofthedot',"GroundZeroBattles",'westtexasrapbattles','dontflop','gotbeefbattles','jfox209sons','theurltv','nocoastraps','crtclrp','bodybagbattles','absyrd','texasbattleleague','fliptopbattles'];
 var leagueMap = {
 jumpoff:"Jump Off",
 drect:"Grind Time",
@@ -41,8 +42,11 @@ theurltv:"URL",
 nocoastraps:"No Coast",
 crtclrp:"Basementality",
 bodybagbattles:"Bodybag",
+mrcoloradorap:"Colorado Rap",
+groundzerobattles:"Ground Zero",
 absyrd:"A&B",
 texasbattleleague:"Texas",
+westtexasrapbattles:"West Texas",
 amilonakis:"Grind Time",
 fliptopbattles:"Flip Top"};
  
