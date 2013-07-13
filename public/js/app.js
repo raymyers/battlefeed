@@ -31,7 +31,7 @@ function showTitle(title) {
     title = title.replace(/\s+/g," ");
     // We don't need to be reminded of the league name in every title.
     title = title.replace(/^.*presents?:/i,"");
-    title = title.replace(/Grind Time Now Presents:?/ig,"").replace(/Grind Time Now/ig,"GTN");
+    title = title.replace(/Grind Time Now Presents:?/ig,"").replace(/Grind Time Now/ig,"GTN").replace(/GrindTimeNow.NET:? ?/ig,"");
     title = title.replace(/Got Beef\?/g,"");
     title = title.replace(/KOTD -?/g,"");
     title = title.replace(/DON'T FLOP -?/g,"");
@@ -56,6 +56,7 @@ function showTitle(title) {
     // We get it. It's a battle.
     title = title.replace(/\[ ?FULL ?BATTLE ?\]/ig,"");
     title = title.replace(/Rap Battle *-? */ig,"");
+    title = title.replace(/ - Voicebox Battles/ig,"");
     title = title.replace(/^ ?presents ?/ig,"");
     //title = title.replace(/w\/ guest judge .*/ig,"");
     //title = title.replace(/w\/ judge .*/ig,"");
@@ -71,7 +72,7 @@ function showTitle(title) {
 
 function mcs() {
     return "Dizaster|Fresco|D-Lor|Nocando|Surgeon General|Passwurdz|" + 
-"Rone|Kid Twist|" +
+"Rone|Kid Twist|Shotty Horroh|" +
 "Soul Khan|Dirtbag Dan|360|Madness|Th[a|e] ?Saurus|" +
 "Cadallack Ron|Rheteric|XQZ|Unorthodox Phrases|deadBeat|T-Rex|" + 
 "Murda Mook|Mac Lethal|poRICH|Mantra|" + 

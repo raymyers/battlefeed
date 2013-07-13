@@ -17,7 +17,8 @@
       :css
         .selectFeed .ui-button-text {font-size:14px;width:8em;padding:5px}
     :css
-      .selectFeed .ui-button-text {font-size:14px;padding:12px}
+      .selectFeed .ui-button-text {font-size:12px;padding:12px}
+      .selectFeed div.button {font-size:15px;}
       #leagueContainer {padding-bottom:1px;}
       .selectFeed div {float:left}
       .selectFeed div {margin:1px}
@@ -48,23 +49,25 @@
     .container_12
       #leagueContainer.grid_12
         .selectFeed.leagues
-          .button(data-path="users/drect/uploads") Grind Time
           .button(data-path="users/KingOfTheDot/uploads") KOTD
           .button(data-path="users/GroundZeroBattles/uploads") Ground Zero
           .button(data-path="users/DontFlop/uploads") Dont Flop
           .button(data-path="users/gotbeefbattles/uploads") Got Beef
-          .button(data-path="users/GrindTimeNowAust/uploads") GTNA
+          /.button(data-path="users/GrindTimeNowAust/uploads") GTNA
           .button(data-path="users/theUrltv/uploads") URL
+          .button(data-path="users/drect/uploads") GT
           .button(data-path="users/NoCoastRaps/uploads") No Coast
+          .button(data-path="users/VoiceboxBattles/uploads") Voicebox
           .button(data-path="users/crtclrp/uploads") Basementality
           .button(data-path="users/BodyBagBattles/uploads") Bodybag
+          .button(data-path="users/MrColoradorap/uploads") Colorado
           .button(data-path="users/TexasBattleLeague/uploads") Texas
           /.button(data-path="users/fliptopbattles/uploads") Flip Top
       .selectedVid.grid_6
         /[if IE]
           %p.browserWarning You are using Internet Explorer. You might have better luck in Firefox or Chrome.
-        %a.splash#splash(href="http://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&ved=0CFoQFjAB&url=http%3A%2F%2Fwww.kingofthedot.com%2Fshowthread.php%3F1917-KOTD-OUTBREAK-JUNE-30th-Title-Match-GP-Semi-Finals%26p%3D13107&ei=9jjqT_HjLYTq9AT4saEd&usg=AFQjCNGUW9Vx8wOvhQYtt2s8M3x8xYBUOA")
-          %img.flyer(src="http://i.imgur.com/YL80d.jpg" height="633" width="490")
+        %a.splash#splash(href="http://finale.nocoastraps.com")
+          %img.flyer(src="/img/nocoastfinalflyer.jpg" height="633" width="490")
         /%img.splash(src="http://www.comicbookmovie.com/images/users/uploads/8558/300movie_story1.jpg")/
         %iframe.youtube-player(type="text/html" src="" frameborder="0")
         %p.title

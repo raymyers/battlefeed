@@ -30,7 +30,7 @@ function clearRows() {
    $("#lore tr").remove();
 }
 
-var leagueUsers = ['jumpoff','amilonakis','drect','kingofthedot',"GroundZeroBattles",'westtexasrapbattles','dontflop','gotbeefbattles','jfox209sons','theurltv','nocoastraps','crtclrp','bodybagbattles','absyrd','texasbattleleague','fliptopbattles'];
+var leagueUsers = ['jumpoff','mrcoloradorap','amilonakis','drect','kingofthedot',"GroundZeroBattles",'westtexasrapbattles','dontflop','gotbeefbattles','jfox209sons','theurltv','nocoastraps','crtclrp','bodybagbattles','absyrd','texasbattleleague','fliptopbattles'];
 var leagueMap = {
 jumpoff:"Jump Off",
 drect:"Grind Time",
